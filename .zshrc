@@ -174,6 +174,8 @@ function precmd() {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 ##RPROMPTにメモをする関数　memo で機能 memoで脱出
+#RPROMPT='%{[38;5;013m%}[%m]%{[0m%}'
+RPROMPT=' '
 #function memo(){
 #	if[ $# -eq 0] then 
 #		unset memotxt
@@ -194,5 +196,5 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd() { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+RPROMPT='${vcs_info_msg_0_}'$RPROMPT
 
